@@ -19,7 +19,9 @@ Imports: rlang,
     tibble,
     evaluate,
     magrittr,
-    stats
+    stats,
+    doParallel,
+    parallel
 RoxygenNote: 6.1.0
 Suggests: testthat,
     mlbench

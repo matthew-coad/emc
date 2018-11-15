@@ -49,13 +49,13 @@ emc_t_test <- function(.formula, .data, alternative = c("two.sided", "less", "gr
 
 }
 
-# emc_variable_importance <- function(.train) {
-#     if (is.null(.train)) {
-#         return (NULL)
-#     }
-#     importance <- caret::varImp(.train)
-#     importance <- importance$importance %>% tibble::rownames_to_column(var = "Variable") %>% as_tibble()
-#     tibble(importance = list(importance))
-# }
-
-
+#' @export
+emc_variable_importance <- function(.train) {
+    train <- .train[[1]]
+    if (is.null(train)) {
+        return(tibble::tibble()[1,])
+    }
+    importance <- caret::varImp(train)
+    importance <- importance$importance %>% tibble::rownames_to_column(var = "Variable") %>% as_tibble()
+    tibble(importance = list(importance))
+}

@@ -13,7 +13,8 @@ emc_algorithms <- function(uninstalled = FALSE) {
         c("lm", "glm", "Penalized Linear Model" = "glmnet", "pls", "pcr", "enet", "lars", "lda", "plr", "polr",
           "nnet", "earth", "svmLinear", "svmPoly", "svmRadial", "knn", "qda", "nb",
           "rpart", "M5", "M5Rules",  "treebag", "rf", "cubist", "ada", "eXtreme Gradient Boosting - Linear" = "xgbLinear", "eXtreme Gradient Boosting - Tree" = "xgbTree",
-          "null", "OneR")
+          "null", "OneR", "bagEarth", "J48", "LMT", "LogitBoost")
+
 
     core_names <- names(core_algorithms) %>% purrr::keep(~ . != "")
     label_overrides <- core_names %>% purrr::set_names(core_names %>% purrr::map(~ core_algorithms[.]))

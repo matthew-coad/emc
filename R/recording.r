@@ -18,6 +18,11 @@ emc_record <- function(..., .label = NULL, .verbose = TRUE, .sep = "_", .cache_p
     quo_name <- quo_names[[1]]
 
     if (!is.null(cache_path) && file.exists(cache_path)) {
+
+        if (!.verbose && !is.null(label)) {
+            message(">>>> Cached ", label, " <<<<")
+        }
+
         return (readRDS(cache_path))
     }
 
